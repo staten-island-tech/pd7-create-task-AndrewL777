@@ -8,33 +8,22 @@ const random = Math.floor(Math.random() * 101);
 const random2 = Math.floor(Math.random() * 101);
 // Math.floor(Math.random() * 101) random number 0-100
 
-function low() {
+function cards() {
   document.getElementById("men").insertAdjacentHTML(
     "beforeend",
     `
-    <div class="card">
-    <h2>${random}</h2>
-    <button id=high> higher </button>
-    <button id=low> lower </button>
-
+  <div class="card">
+  <h2 class="small">${random}</h2>
+</div>
+`,
+    document.getElementById("men").insertAdjacentHTML(
+      "beforeend",
+      `
+  <div class="card">
+  <h2>${random2}</h2>
 </div>
 `
+    )
   );
 }
-low();
-
-function higher() {
-  document.getElementById("men").insertAdjacentHTML(
-    "beforeend",
-    `
-    <div class="card">
-    <h2 class="small">${random2}</h2>
-  
-
-    
-
-</div>
-`
-  );
-}
-higher();
+cards();
