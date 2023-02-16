@@ -6,6 +6,7 @@ const Dom = {
 };
 const random = Math.floor(Math.random() * 101);
 const random2 = Math.floor(Math.random() * 101);
+const win = "Correct";
 // Math.floor(Math.random() * 101) random number 0-100
 
 function cards() {
@@ -29,17 +30,29 @@ function cards() {
 cards();
 
 function highBtn() {
-  while (random2 > random)
+  if (random > random2) {
     document.getElementById("men").insertAdjacentHTML(
       "beforeend",
       `
   <div class="card">
-  <h2 class="small">${Correct}</h2>
+  <h2>${"Wrong, the number was"}</h2>
 </div>
 `
     );
+  }
 }
 
-function lowBtn() {}
+function lowBtn() {
+  if (random2 > random) {
+    document.getElementById("men").insertAdjacentHTML(
+      "beforeend",
+      `
+  <div class="card">
+  <h2>${"Wrong, the number was"}</h2>
+</div>
+`
+    );
+  }
+}
 
 highBtn();
