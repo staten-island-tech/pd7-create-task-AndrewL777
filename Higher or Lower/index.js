@@ -27,3 +27,19 @@ function cards() {
   );
 }
 cards();
+
+function highBtn() {
+  while (random2 > random)
+    document.getElementById("men").insertAdjacentHTML(
+      "beforeend",
+      `
+  <div class="card">
+  <h2 class="small">${Correct}</h2>
+</div>
+`
+    );
+}
+
+function lowBtn() {}
+
+highBtn();
