@@ -5,12 +5,7 @@ body {
     font-weight: bold;
     text-align: center;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+
 
      }
 
@@ -46,8 +41,14 @@ h3 {
     padding: 2rem;
   }
 
-.small {
-color: black;
+.invis {
+color: white;
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
 }
 
 .btn {
@@ -58,16 +59,3 @@ color: black;
   border-radius: 10rem;
   background-color: white;
 }
-
-/* whalen's button:
-text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  margin: 1rem;
-  font-size: 2rem;
-  border-radius: 10rem;
-  transition: all 0.2s;
-  position: relative;
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards; */
