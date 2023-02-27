@@ -4,8 +4,8 @@ const Dom = {
   high: document.getElementById("high"),
   low: document.getElementById("low"),
 };
-const random = Math.floor(Math.random() * 101);
-const random2 = Math.floor(Math.random() * 101);
+let random = Math.floor(Math.random() * 101);
+let random2 = Math.floor(Math.random() * 101);
 const win = "Correct";
 let count = 0;
 // document.getElementById("men").insertAdjacentHTML(
@@ -63,7 +63,7 @@ function lowBtn() {
     document.getElementById("men").insertAdjacentHTML(
       "beforeend",
       `<div class="card">
-  <h2>Wrong, the number was ${random}</h2>
+  <h2>Wrong, the number is ${random}</h2>
 </div>
 `
     );
@@ -78,3 +78,14 @@ function lowBtn() {
     );
   }
 }
+
+function streak() {
+  document.getElementById("men").insertAdjacentHTML(
+    "beforeend",
+    ` 
+    <h4>Win Streak: ${count}</h4>
+`
+  );
+}
+
+streak();
