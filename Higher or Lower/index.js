@@ -18,20 +18,20 @@ let count = 0;
 
 function cards() {
   document.getElementById("men").insertAdjacentHTML(
-    "beforeend",
+    "afterbegin",
     `
-  <div class="card">
-  <h2 class="invis">${random}</h2>
-</div>
-`,
-    document.getElementById("men").insertAdjacentHTML(
-      "beforeend",
-      `
-  <div class="card">
-  <h2>${random2}</h2>
-</div>
-`
-    )
+    <div class="card">
+    <h2 class="invis">${random}</h2>
+    </div>
+    `
+  );
+  document.getElementById("men").insertAdjacentHTML(
+    "afterbegin",
+    `
+    <div class="card">
+    <h2>${random2}</h2>
+    </div>
+    `
   );
 }
 cards();
@@ -42,16 +42,11 @@ document.getElementById("high").addEventListener("click", function () {
 
 function highBtn() {
   if (random > random2) {
-    document.getElementById("men").insertAdjacentHTML(
-      "beforeend",
-      `
-  <div class="card">
-  <h2>Wrong, the number was ${random}</h2>
-</div>
-`
-    );
+    alert(`Wrong, the number is ${random}`);
+    location.reload();
   } else {
     count++;
+    streak();
   }
 }
 document.getElementById("low").addEventListener("click", function () {
@@ -60,32 +55,14 @@ document.getElementById("low").addEventListener("click", function () {
 
 function lowBtn() {
   if (random2 > random) {
-    document.getElementById("men").insertAdjacentHTML(
-      "beforeend",
-      `<div class="card">
-  <h2>Wrong, the number is ${random}</h2>
-</div>
-`
-    );
+    alert(`Wrong, the number is ${random}`);
+    location.reload();
   } else {
-    document.getElementById("men").insertAdjacentHTML(
-      "beforeend",
-      `
-<div class="card">
-<h2>Correct!</h2>
-</div>
-`
-    );
+    count++;
+    streak();
   }
 }
 
 function streak() {
-  document.getElementById("men").insertAdjacentHTML(
-    "beforeend",
-    ` 
-    <h4>Win Streak: ${count}</h4>
-`
-  );
+  document.getElementById("streak").innerHTML = `Win Streak: ${count}`;
 }
-
-streak();
