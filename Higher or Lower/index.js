@@ -4,24 +4,21 @@ const Dom = {
   high: document.getElementById("high"),
   low: document.getElementById("low"),
 };
-let random = Math.floor(Math.random() * 101);
-let random2 = Math.floor(Math.random() * 101);
+
+const history = [];
+let right = Math.floor(Math.random() * 101);
+let left = Math.floor(Math.random() * 101);
 const win = "Correct";
 let count = 0;
-// document.getElementById("men").insertAdjacentHTML(
-//   "beforeend",
-//   `
-//   <h2> ${count}</h2>
 
-// `
-// );
+
 
 function cards() {
   document.getElementById("men").insertAdjacentHTML(
     "afterbegin",
     `
     <div class="card">
-    <h2 class="invis">${random}</h2>
+    <h2 id="invis">${right}</h2>
     </div>
     `
   );
@@ -29,7 +26,7 @@ function cards() {
     "afterbegin",
     `
     <div class="card">
-    <h2>${random2}</h2>
+    <h2 id="visible">${left}</h2>
     </div>
     `
   );
@@ -41,12 +38,15 @@ document.getElementById("high").addEventListener("click", function () {
 });
 
 function highBtn() {
-  if (random > random2) {
-    alert(`Wrong, the number is ${random}`);
+  if (right > left) {
+    alert(`Wrong, the number is ${right}`);
     location.reload();
   } else {
     count++;
     streak();
+    replace();
+history.push(right);
+previous();
   }
 }
 document.getElementById("low").addEventListener("click", function () {
@@ -54,15 +54,33 @@ document.getElementById("low").addEventListener("click", function () {
 });
 
 function lowBtn() {
-  if (random2 > random) {
-    alert(`Wrong, the number is ${random}`);
+  if (left > right) {
+    alert(`Wrong, the number is ${right}`);
     location.reload();
   } else {
     count++;
     streak();
+    replace();
+    history.push(right);
+    previous();
   }
+}
+
+
+
+function replace () {
+   right = Math.floor(Math.random() * 101);
+   document.getElementById("invis").innerHTML = `${right}`;
+   left = Math.floor(Math.random() * 101);
+   document.getElementById("visible").innerHTML = `${left}`;
+
 }
 
 function streak() {
   document.getElementById("streak").innerHTML = `Win Streak: ${count}`;
+}
+
+
+function previous() {
+  document.getElementById("Hist").innerHTML = `Previous Number(s): ${history}`;
 }
